@@ -11,6 +11,7 @@ html {
 
 body {
   min-width: 320px;
+  // min-height: 100vh;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -20,14 +21,20 @@ body {
 }
 
 .container {
-  max-width: 1440px;
-  padding: 0 130px;
+  --width: 1180px;
+  --padding: 30px;
+  max-width: calc(var(--width) + var(--padding) * 2);
   margin: 0 auto;
+  padding: 0 var(--padding);
 
-//   @include sm {
-//     padding: 0 24px;
-// }
+  // max-width: 1440px;
+  // padding: 0 130px;
+  // margin: 0 auto;
 
+}
+
+.blue-text {
+  color: #2A18FF;
 }
 
 img, svg, video {

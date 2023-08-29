@@ -1,0 +1,35 @@
+.footer {
+    padding: 50px 0 40px;
+
+    &__container {
+        display: grid;
+        gap: 27px;
+        grid-template-areas: 
+        " logo ."
+        " copyright contacts";
+    }
+
+    &__logo {
+        grid-area: logo;
+    }
+
+    &__copyright {
+        grid-area: copyright;
+    }
+
+    &__contacts {
+        grid-area: contacts;
+        justify-self: end;
+        min-width: 180px;
+    }
+
+    &__contact {
+        margin-bottom: 8px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+    }
+
+    &__link {
+    }
+}
