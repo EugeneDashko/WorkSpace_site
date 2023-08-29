@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Work Space</title>
 </head>
+
 <body>
   <header class="header">
     <div class="container ">
       <div class="header__container">
-
+        <img class="header__logo" src="img/logo.svg" alt="Логотип">
+        <a href="#vacancies" class="heaaer__link">Посмотреть вакансии</a>
       </div>
     </div>
   </header>
@@ -18,15 +20,64 @@
   <main>
    <section class="hero">
     <div class="container">
-
+      <h1 class="hero__title">Найди работу<span class="blue-text">своей мечты</span></h1>
     </div>
    </section>
 
-   <section class="about">
-    <div class="container">
+   <div class="vacancies" id="vacancies">
+    <div class="container vacancies__container">
+      <section class="vacancies__filter filter">
+        <h2 class="filter__title">Фильтр</h2>
 
+        <form class="filter__form">
+          <fieldset class="filter__fieldset">
+            <legend class="filter__legent">Город</legend>
+
+            <select class="filter__select" name="city" id="city">
+              <option value="">Выбрать город</option>
+              <option >Минск</option>
+              <option >Гродно</option>
+              <option >Могилев</option>
+              <option >Витебск</option>
+              <option >Гомель</option>
+            </select>
+          </fieldset>
+
+          <fieldset class="filter__fieldset">
+            <legend class="filter__legent">Заработная плата</legend>
+
+            <div class="filter__range">
+              <input class="filter__input" type="number" name="pay-from" placeholder="от">
+              <input class="filter__input" type="number" name="pay-to" placeholder="до">
+            </div>
+          </fieldset>
+          <div class="filter__checkboxes">
+            <fieldset class="filter__fieldset">
+              <legend>Формат</legend>
+
+              <label class="filter__label checkbox">
+                <input class="checkbox__input" type="checkbox" name="format" value="Офис">
+              </label>
+              <label class="filter__label checkbox">
+                <input class="checkbox__input" type="checkbox" name="format" value="Офис">
+              </label>
+              <label class="filter__label checkbox">
+                <input class="checkbox__input" type="checkbox" name="format" value="Офис">
+              </label>
+              
+            </fieldset>
+            <fieldset class="filter__fieldset">
+              
+            </fieldset>
+            <fieldset class="filter__fieldset">
+              
+            </fieldset>
+          </div>
+        </form>
+      </section>
+      <section class="vacancies__cards cards"></section>
     </div>
-   </section>
+   </div>
 
   </main>
 
