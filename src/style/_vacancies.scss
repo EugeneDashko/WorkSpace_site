@@ -1,0 +1,24 @@
+.vacancies {
+    padding: 50px 0;
+
+    &__container {
+        display: flex;
+        gap: 24px 20px;
+    }
+    &__filter-btn {
+        display: none;
+    }
+
+    &__filter {
+        // flex-basis: 280px; // гибкий размер
+        // flex-grow: 0; // чтобы не  увеличивался
+        // flex-shrink: 0; // чтобы не уменьшался
+
+        //выше тоже самое написано
+        flex: 0 0 280px;
+    }
+
+    &__cards {
+        flex-basis: 100%; //займи все свободное пространство
+    }
+}
