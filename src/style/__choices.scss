@@ -1,10 +1,38 @@
 .choices {
     width: 100%;
+
+    // &::after {
+    // content: "";
+    // height: 0;
+    // width: 0;
+    // border-style: solid;
+    // border-color: #333 transparent transparent;
+    // border-width: 5px;
+    // position: absolute;
+    // right: 11.5px;
+    // top: 50%;
+    // margin-top: -2.5px;
+    // pointer-events: none;
+    // }
 }
 
 .choices__inner {
-    background-color: green;
     padding: 6px 16px;
     min-height: 32px;
     border: none;
 }
+
+.choices[data-type*=select-one]::after {
+        content: "";
+        height: 20px;
+        width: 20px;
+        border: none;
+        right: 16px;
+        top: 12px;
+        background-image: url('../img/arrow.svg');
+
+}
+.choices[data-type*="select-one"].is-open::after {
+    transform: rotate(180deg);
+    margin-bottom: -2px;
+    }
