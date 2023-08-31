@@ -12,5 +12,4 @@ import { choice } from './modules/choices';
 
 //use modules
 
-
 choice();
