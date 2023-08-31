@@ -23,3 +23,8 @@
         <img src="img/kitty.jpg" alt="песика кормят молоком" class="page__image">
     </picture>
 </figure>
+
+
+
+Библиотека input - select:
+https://choices-js.github.io/Choices/

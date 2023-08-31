@@ -1,10 +1,14 @@
 .cards {
-    display: grid;
+
+
 
     &__title {
     }
 
     &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
     }
 
     &__item {
@@ -12,20 +16,4 @@
 }
 .visually-hidden {
 }
-.vacancy {
 
-    &__img {
-    }
-
-    &__company {
-    }
-
-    &__title {
-    }
-
-    &__fields {
-    }
-
-    &__field {
-    }
-}

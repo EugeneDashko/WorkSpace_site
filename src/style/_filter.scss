@@ -63,7 +63,9 @@
         gap: 32px;
     }
 
-    &__label {
+    &__label:not(:last-child) {
+        margin-bottom: 8px;
+
     }
 
     &__buttons {
