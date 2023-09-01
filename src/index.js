@@ -3,39 +3,42 @@ import './index.html';
 import './index.scss';
 
 
+
 //=====================================================
 
 
 //new modules:
-
+const Choices = require('choices.js');
+import { renderError } from './modules/renderError';
+import { renderVacancy } from './modules/renderVacancy';
 
 //use modules
-const API_URL = 'https://workspace-methed.vercel.app/';
+export const API_URL = 'https://workspace-methed.vercel.app/';
 const LOCATION_URL = "api/locations";
+const VACANCY_URL = "api/vacancy";
 
-const Choices = require('choices.js');
 
 
 const init = () => {
 
+// select city:
     const citySelect = document.querySelector('#city');
     const cityChoices = new Choices(citySelect, {
         itemSelectText: '',
         searchEnabled: false,
         shouldSort: false,
     });
-
+//запрос на сервер по городам:
     getData(`${API_URL}${LOCATION_URL}`,
     (locationData) => {
         const locations = locationData.map(location => {
             return {value: location};
         });
-        console.log('locations: ', locations);
         cityChoices.setChoices(
         locations,
-         "value",
-          "label",
-           true)
+        "value",
+        "label",
+        true)
     },
     (err) => {
         console.log('err: ', err);
@@ -52,21 +55,15 @@ const getData = async (url, cbSuccess, cbError) => {
     }
 }
 
+// select vacancy:
+const url = new URL(`${API_URL}${VACANCY_URL}`);
+
+getData(url, renderVacancy, renderError);
+
 init();
 
 
-// fetch(API_URL + LOCATION_URL)
-//     .then((response)=> {
-//         return response.json();
-//     })
-//     .then((data)=> {
-//         console.log('data: ', data);
 
-//     })
-//     .catch((err => {
-//         console.log('err: ', err);
-
-//     }));
 
 
 
