@@ -6,6 +6,6 @@ export  const choice = () => {
     const cityChoices = new Choices(citySelect, {
         itemSelectText: '',
         searchEnabled: false,
-
+        shouldSort: false,
     });
 }
