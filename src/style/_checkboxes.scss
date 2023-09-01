@@ -19,7 +19,7 @@
         //псевдоэлементы:
         &::after {
             content: '';
-            position: absolute;
+            position: absolute; 
             display: block;
             inset: 0;
             background-image: url('../img/check_svg.svg');
