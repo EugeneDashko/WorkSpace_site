@@ -26,8 +26,6 @@ const createCards = (data) =>
         return li;
     });
 
-;
-
 export const renderVacancy = (data) => {
     cardsList.textContent = "";
     const cards = createCards(data);
