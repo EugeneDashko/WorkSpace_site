@@ -1,0 +1,34 @@
+.modal {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.50);
+    cursor: pointer;
+    padding: 30px;
+    overflow-y: auto; // чтобы модальное окно могло скролиться отдельно от страницы
+    display: flex;
+}
+
+.modal__open {
+    display: flex;
+}
+
+.modal__main {
+    position: relative;
+    margin: auto;
+    cursor: default;
+}
+
+.modal__close {
+    position: absolute;
+    line-height: 0;
+    top: 12px;
+    right: 12px;
+    outline: 1px solid transparent; // для tab
+    border-radius: 4px;
+
+        &:focus-visible {
+            outline-color: grey;
+        }
+
+}
