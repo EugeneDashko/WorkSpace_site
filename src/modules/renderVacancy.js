@@ -1,6 +1,5 @@
 import { API_URL } from "..";
 
-const cardsList = document.querySelector('.cards__list');
 
 const createCard = vacancy =>
     `
@@ -17,18 +16,16 @@ const createCard = vacancy =>
         </article>
     `;
 
-const createCards = (data) => 
+const createCards = (data) =>
     data.vacancies.map((vacancy) => {
         const li = document.createElement('li');
         li.classList.add('cards__item');
         li.insertAdjacentHTML('beforeend', createCard(vacancy));
-        console.log('li: ', li);
         return li;
     });
 
-export const renderVacancy = (data) => {
+export const renderVacancy = (data, cardsList) => {
     cardsList.textContent = "";
     const cards = createCards(data);
-    console.log('cards: ', cards);
     cardsList.append(...cards);
 };
