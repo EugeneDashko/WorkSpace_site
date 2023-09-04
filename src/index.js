@@ -6,25 +6,27 @@ const Choices = require('choices.js');
 import { renderError } from './modules/renderError';
 import { renderVacancy } from './modules/renderVacancy';
 import { openModal } from './modules/openModal';
+import { getData } from './modules/getData';
 
 
-
-//use modules
+//API
 export const API_URL = 'https://workspace-methed.vercel.app/';
 const LOCATION_URL = "api/locations";
 const VACANCY_URL = "api/vacancy";
 
+//use modules
 
 const init = () => {
 
-// select city:
+    // выбор городов:
     const citySelect = document.querySelector('#city');
     const cityChoices = new Choices(citySelect, {
         itemSelectText: '',
         searchEnabled: false,
         shouldSort: false,
     });
-//запрос на сервер по городам:
+
+    //запрос на сервер по городам:
     getData(`${API_URL}${LOCATION_URL}`,
     (locationData) => {
         const locations = locationData.map(location => {
@@ -41,22 +43,10 @@ const init = () => {
     });
 };
 
-export const getData = async (url, cbSuccess, cbError) => {
-    try{
-        const response = await fetch(url);
-        const data = await response.json();
-        cbSuccess(data);
-    } catch (err) {
-        cbError(err)
-    }
-}
 
-
-
-// select vacancy:
+// выбор вакансий:
 export const url = new URL(`${API_URL}${VACANCY_URL}`);
 const cardsList = document.querySelector('.cards__list');
-
 
 getData(
     url,
@@ -68,13 +58,14 @@ getData(
     renderError
     );
 
-    cardsList.addEventListener('click', ({target}) => {
-        const vacancyCard = target.closest('.vacancy');
-        if(vacancyCard) {
-            const vacancyId = vacancyCard.dataset.id;
-            openModal(vacancyId);
-        }
-    })
+cardsList.addEventListener('click', ({target}) => {
+    const vacancyCard = target.closest('.vacancy');
+    if(vacancyCard) {
+        const vacancyId = vacancyCard.dataset.id;
+        openModal(vacancyId);
+    }
+})
+
 
 init();
 
