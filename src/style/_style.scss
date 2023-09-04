@@ -1,4 +1,7 @@
 html {
+  //плавный скролл по нажатию на якоря:
+  scroll-behavior: smooth;
+
   position: relative;
   box-sizing: border-box;
 }
