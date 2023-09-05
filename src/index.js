@@ -8,6 +8,8 @@ import { renderVacancy } from './modules/renderVacancy';
 import { openModal } from './modules/openModal';
 import { getData } from './modules/getData';
 import { addPreload } from './modules/preload';
+import { filter } from './modules/filter';
+
 
 
 //API
@@ -21,7 +23,7 @@ export const url = new URL(`${API_URL}${VACANCY_URL}`);
 //use modules
 
 const init = () => {
-
+    filter(`${API_URL}${VACANCY_URL}`);
     // выбор городов:
     const citySelect = document.querySelector('#city');
     const cityChoices = new Choices(citySelect, {
