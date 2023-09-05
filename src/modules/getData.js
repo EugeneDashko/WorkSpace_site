@@ -1,4 +1,5 @@
 export const getData = async (url, cbSuccess, cbError) => {
+
     try{
 
         const response = await fetch(url);

@@ -1,4 +1,6 @@
 import { API_URL } from "..";
+import { removePreload } from "./preload";
+
 
 
 const createCard = vacancy =>
@@ -7,12 +9,12 @@ const createCard = vacancy =>
         <img class="vacancy__img" src="${API_URL}${vacancy.logo}" alt="Логотип компании ${vacancy.company}">
         <p class="vacancy__company">${vacancy.company}</p>
         <h3 class="vacancy__title">${vacancy.title}</h3>
-        <ul class="vacancy__fields">
-            <li class="vacancy__field">от ${parseInt(vacancy.salary).toLocaleString()}₽</li>
-            <li class="vacancy__field">${vacancy.format}</li>
-            <li class="vacancy__field">${vacancy.type}</li>
-            <li class="vacancy__field">${vacancy.experience}</li>
-        </ul>
+            <ul class="vacancy__fields">
+                <li class="vacancy__field">от ${parseInt(vacancy.salary).toLocaleString()}₽</li>
+                <li class="vacancy__field">${vacancy.format}</li>
+                <li class="vacancy__field">${vacancy.type}</li>
+                <li class="vacancy__field">${vacancy.experience}</li>
+            </ul>
         </article>
     `;
 
@@ -28,4 +30,5 @@ export const renderVacancy = (data, cardsList) => {
     cardsList.textContent = "";
     const cards = createCards(data);
     cardsList.append(...cards);
+    removePreload(cardsList);
 };

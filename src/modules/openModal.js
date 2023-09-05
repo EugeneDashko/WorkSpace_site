@@ -1,21 +1,8 @@
 import { API_URL, url } from "..";
 import { getData } from "./getData";
 import { renderError } from "./renderError";
-// {
-//     "id": "lkxsnh8av9pk5a",
-//     "title": "Графический дизайнер",
-//     "company": "Creative People",
-//     "description": "Привет. Мы в CreativePeople ищем middle графического дизайнера в свою дизайн команду. Удаленно, из любой точки нашей страны, где у вас будет хороший интернет. Опыт работы в разработке логотипов, фирменных стилей обязателен.\nУ нас в портфолио много крупных российских компаний, с некоторыми мы работаем уже много лет и делаем самые разные проекты, от сайтов до мобильных приложений.",
-//     "email": "CreativePeople@gmail.com",
-//     "salary": "110000",
-//     "type": "проектная работа",
-//     "format": "гибкий",
-//     "experience": "от 1 года до 3-х лет",
-//     "location": "Москва",
-//     "logo": "img/lkxsnh8av9pk5a.png"
-// }
 
-//здесь использована деструктуризация ( вытягиваем свойства объека data)
+//здесь использована деструктуризация (вытягиваем свойства объека data)
 const createDetailVacancy = ({
     id,
     title,
@@ -28,44 +15,43 @@ const createDetailVacancy = ({
     experience,
     location,
     logo,
-}) => `
-    <article class="detail">
-        <div class="detail__header">
-            <img src="${API_URL}${logo}" alt="Логотип Creative People" class="detail__logo">
-            <p class="detail__company">${company}</p>
-            <h2 class="detail__title">${title}</h2>
-        </div>
+    }) => `
+        <article class="detail">
+            <div class="detail__header">
+                <img src="${API_URL}${logo}" alt="Логотип Creative People" class="detail__logo">
+                <p class="detail__company">${company}</p>
+                <h2 class="detail__title">${title}</h2>
+            </div>
 
-        <div class="detail__main">
-            <p class="detail__description">
-                ${description.replaceAll('\n', '<br>')}
+            <div class="detail__main">
+                <p class="detail__description">
+                    ${description.replaceAll('\n', '<br>')}
+                </p>
+                <ul class="detail__fields">
+                <li class="detail__field">${parseInt(salary).toLocaleString()}₽</li>
+                <li class="detail__field">${type}</li>
+                <li class="detail__field">${format}</li>
+                <li class="detail__field">${experience}</li>
+                <li class="detail__field">${location}</li>
+                </ul>
+            </div>
+            <p class="detail__resume"> Отправляйте резюме на
+                <a class="blue-text" href="mailto:${email}">${email}</a>
             </p>
-            <ul class="detail__fields">
-            <li class="detail__field">${parseInt(salary).toLocaleString()}₽</li>
-            <li class="detail__field">${type}</li>
-            <li class="detail__field">${format}</li>
-            <li class="detail__field">${experience}</li>
-            <li class="detail__field">${location}</li>
-            </ul>
-        </div>
-        <p class="detail__resume"> Отправляйте резюме на 
-            <a class="blue-text" href="mailto:${email}">${email}</a>
-        </p>
-    </article>
-`
+        </article>
+    `;
 
 const renderModal = (data) => {
-    console.log('data: ', data);
+
     const modal = document.createElement('div');
     modal.classList.add('modal');
 
     const modalMain = document.createElement('div');
     modalMain.classList.add('modal__main');
-
     modalMain.innerHTML = createDetailVacancy(data);
 
     const modalClose = document.createElement('button');
-    modalClose.classList.add('modal__close')
+    modalClose.classList.add('modal__close');
     modalClose.innerHTML = `
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_8_382)">
@@ -73,16 +59,24 @@ const renderModal = (data) => {
             </g>
         </svg>
     `;
-    console.log('modalClose: ', modalClose);
     modalMain.append(modalClose);
 
     modal.append(modalMain);
+    
     document.body.append(modal);
+
+    //закрытие модального окна:
+    modal.addEventListener('click', ({target}) => {
+        if(target ===  modal || target.closest('.modal__close') ) {
+            modal.remove();
+        };
+    });
 }
 
 export const openModal = (id) => {
-    console.log('id: ', id);
     getData(`${url}/${id}`, renderModal, renderError)
 }
+
+
 
 

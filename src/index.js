@@ -7,13 +7,17 @@ import { renderError } from './modules/renderError';
 import { renderVacancy } from './modules/renderVacancy';
 import { openModal } from './modules/openModal';
 import { getData } from './modules/getData';
+import { addPreload } from './modules/preload';
 
 
 //API
 export const API_URL = 'https://workspace-methed.vercel.app/';
+
+
 const LOCATION_URL = "api/locations";
 const VACANCY_URL = "api/vacancy";
 
+export const url = new URL(`${API_URL}${VACANCY_URL}`);
 //use modules
 
 const init = () => {
@@ -26,46 +30,53 @@ const init = () => {
         shouldSort: false,
     });
 
+
     //запрос на сервер по городам:
     getData(`${API_URL}${LOCATION_URL}`,
-    (locationData) => {
-        const locations = locationData.map(location => {
-            return {value: location};
-        });
-        cityChoices.setChoices(
-        locations,
-        "value",
-        "label",
-        true)
-    },
-    (err) => {
-        console.log('err: ', err);
+
+            (locationData) => {
+                const locations = locationData.map(location => {
+                    return {value: location};
+                });
+
+                cityChoices.setChoices(
+                locations,
+                "value",
+                "label",
+                true)
+            },
+
+            (err) => {
+                console.log('err: ', err);
     });
-};
 
 
-// выбор вакансий:
-export const url = new URL(`${API_URL}${VACANCY_URL}`);
-const cardsList = document.querySelector('.cards__list');
+    // выбор вакансий:
+    const cardsList = document.querySelector('.cards__list');
 
-getData(
-    url,
+    addPreload(cardsList);
 
-    (data) => {
-    renderVacancy (data, cardsList)
-    },
+    getData(
+        url,
 
-    renderError
+        (data) => {
+        renderVacancy (data, cardsList)
+        },
+
+        renderError
     );
 
-cardsList.addEventListener('click', ({target}) => {
-    const vacancyCard = target.closest('.vacancy');
-    if(vacancyCard) {
-        const vacancyId = vacancyCard.dataset.id;
-        openModal(vacancyId);
-    }
-})
+    //открываю модальное окно:
+    cardsList.addEventListener('click', ({target}) => {
+        const vacancyCard = target.closest('.vacancy');
+        if(vacancyCard) {
+            //получаю id из тега и с ним запускаю opneModal:
+            const vacancyId = vacancyCard.dataset.id;
+            openModal(vacancyId);
+        }
+    });
 
+};
 
 init();
 
