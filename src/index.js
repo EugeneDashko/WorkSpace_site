@@ -9,6 +9,7 @@ import { openModal } from './modules/openModal';
 import { getData } from './modules/getData';
 import { addPreload } from './modules/preload';
 import { filter } from './modules/filter';
+import { renderMoreVacancies } from './modules/renderMoreVacancies';
 
 
 
@@ -19,8 +20,27 @@ export const API_URL = 'https://workspace-methed.vercel.app/';
 const LOCATION_URL = "api/locations";
 const VACANCY_URL = "api/vacancy";
 
+//записываю сюда последний url вызванный в getData:
+let lastUrl = "";
+
 export const url = new URL(`${API_URL}${VACANCY_URL}`);
 //use modules
+
+
+//пагинация
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            //если элемент видимый
+            if (entry.isIntersecting) {
+                loadMoreVacancies();
+            }
+        });
+    },
+    {
+        rootMargin: "100px",
+    },
+);
 
 const init = () => {
     filter(`${API_URL}${VACANCY_URL}`);
@@ -58,15 +78,7 @@ const init = () => {
 
     addPreload(cardsList);
 
-    getData(
-        url,
-
-        (data) => {
-        renderVacancy (data, cardsList)
-        },
-
-        renderError
-    );
+    getData(url, renderVacancy, renderError);
 
     //открываю модальное окно:
     cardsList.addEventListener('click', ({target}) => {
@@ -78,7 +90,10 @@ const init = () => {
         }
     });
 
+    renderMoreVacancies();
+
 };
+
 
 init();
 

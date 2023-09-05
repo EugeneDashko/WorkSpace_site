@@ -26,7 +26,8 @@ const createCards = (data) =>
         return li;
     });
 
-export const renderVacancy = (data, cardsList) => {
+export const renderVacancy = (data) => {
+    const cardsList = document.querySelector('.cards__list');
     cardsList.textContent = "";
     const cards = createCards(data);
     cardsList.append(...cards);

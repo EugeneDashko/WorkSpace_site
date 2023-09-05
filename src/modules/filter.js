@@ -16,14 +16,7 @@ export const filter = (urlVacancy) => {
         formData.forEach((value, key) => {
         urlWithParam.searchParams.append(key, value);
         });
-        
-        const cardsList = document.querySelector('.cards__list');
-        getData (urlWithParam,
 
-             (data) => {
-            renderVacancy (data, cardsList)
-            },
-            
-            renderError);
+        getData (urlWithParam, renderVacancy, renderError);
     });
 };
