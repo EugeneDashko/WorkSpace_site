@@ -4,21 +4,21 @@ $text:  #171717;
 
 
 // от десктопа
-// @mixin lg {
-//     @media (max-width: 1024px) {
-//         @content;
-//     }
-// }
-// @mixin md {
-//     @media (max-width: 768px) {
-//         @content;
-//     }
-// }
-// @mixin sm {
-//     @media (max-width: 560px) {
-//         @content;
-//     }
-// }
+@mixin lg {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+@mixin md {
+    @media (max-width: 940px) {
+        @content;
+    }
+}
+@mixin sm {
+    @media (max-width: 560px) {
+        @content;
+    }
+}
 
 
 // от мобилки

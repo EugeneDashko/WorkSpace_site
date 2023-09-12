@@ -1,26 +1,68 @@
 .hero {
     padding: 60px 0 50px;
+
     &__container {
         position: relative;
-        padding: 57px 0;
+        padding-top: 57px;
+        padding-bottom: 57px;
         &::after {
             content: '';
             position: absolute;
             width: 431px;
-            height: 330px;
+            // height: 330px;
+            top: 0;
+            bottom: 0;
             background: url('../img/laptop.png');
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
             right: -9px;
             top: 0;
+        }
 
+        @include lg {
+            padding-top: 53px;
+            padding-bottom: 53px;
+             &::after {
+                width: 340px;
+             }
+
+             @include md {
+                padding-top: 40px;
+                padding-bottom: 40px;
+
+                &::after {
+                    width: 269px;
+                }
+             }
         }
     }
     &__title {
+        position: relative;
+        z-index: 2;
         max-width: 768px;
         font-size: 90px;
         letter-spacing: 1.8px;
         text-transform: uppercase;
+
+        @include lg {
+            max-width: 580px;
+            font-size: 64px;
+            letter-spacing: 1.28px;
+
+            @include md {
+                max-width: 450px;
+                font-size: 52px;
+                letter-spacing: 1.04px;
+            }
+        }
+    }
+
+    @include lg {
+        padding: 40px 0;
+
+        @include md {
+            padding: 30px 0;
+        }
     }
 }

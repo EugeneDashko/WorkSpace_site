@@ -34,6 +34,14 @@ body {
   // padding: 0 130px;
   // margin: 0 auto;
 
+      @include lg {
+        --width: 880px;
+
+        @include md {
+          --width: 680px;
+        }
+      }
+
 }
 
 .blue-text {
