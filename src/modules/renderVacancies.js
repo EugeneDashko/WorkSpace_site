@@ -1,5 +1,4 @@
-import { API_URL } from "..";
-import { removePreload } from "./preload";
+import { API_URL, observer, pagination } from "..";
 
 
 
@@ -18,7 +17,7 @@ const createCard = vacancy =>
         </article>
     `;
 
-const createCards = (data) =>
+export const createCards = (data) =>
     data.vacancies.map((vacancy) => {
         const li = document.createElement('li');
         li.classList.add('cards__item');
@@ -26,10 +25,15 @@ const createCards = (data) =>
         return li;
     });
 
-export const renderVacancy = (data) => {
+export const renderVacancies = (data) => {
     const cardsList = document.querySelector('.cards__list');
     cardsList.textContent = "";
     const cards = createCards(data);
     cardsList.append(...cards);
-    removePreload(cardsList);
+
+    // if(data.pagination) {
+    //     Object.assign(pagination, data.pagination);
+    // };
+
+    // observer.observe(cardsList.lastElementChild);
 };

@@ -4,13 +4,12 @@ import './index.scss';
 //new modules:
 const Choices = require('choices.js');
 import { renderError } from './modules/renderError';
-import { renderVacancy } from './modules/renderVacancy';
+import { renderVacancies } from './modules/renderVacancies';
 import { openModal } from './modules/openModal';
 import { getData } from './modules/getData';
-import { addPreload } from './modules/preload';
+import { addPreload, removePreload } from './modules/preload';
 import { filter } from './modules/filter';
-import { renderMoreVacancies } from './modules/renderMoreVacancies';
-
+import { loadMoreVacancies } from './modules/loadMoreVacancies';
 
 
 //API
@@ -21,26 +20,31 @@ const LOCATION_URL = "api/locations";
 const VACANCY_URL = "api/vacancy";
 
 //записываю сюда последний url вызванный в getData:
-let lastUrl = "";
+const cardsList = document.querySelector('.cards__list');
+export let lastUrl = "";
+export const pagination = {};
 
 export const url = new URL(`${API_URL}${VACANCY_URL}`);
+
 //use modules
 
 
 //пагинация
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach(entry => {
-            //если элемент видимый
-            if (entry.isIntersecting) {
-                loadMoreVacancies();
-            }
-        });
-    },
-    {
-        rootMargin: "100px",
-    },
-);
+// observer - следит за чем-либо
+// export const observer = new IntersectionObserver(
+//     (entries) => {
+//         entries.forEach(entry => {
+//             //если элемент видимый
+//             if (entry.isIntersecting) {
+//                 loadMoreVacancies(cardsList);
+                
+//             }
+//         })
+//     },
+//     {
+//         rootMargin: "100px",
+//     },
+// );
 
 const init = () => {
     filter(`${API_URL}${VACANCY_URL}`);
@@ -72,13 +76,14 @@ const init = () => {
                 console.log('err: ', err);
     });
 
-
     // выбор вакансий:
     const cardsList = document.querySelector('.cards__list');
-
     addPreload(cardsList);
+    getData(url, renderVacancies, renderError).then(() => {
+        lastUrl = url;
+        removePreload(cardsList);
+    });
 
-    getData(url, renderVacancy, renderError);
 
     //открываю модальное окно:
     cardsList.addEventListener('click', ({target}) => {
@@ -89,9 +94,6 @@ const init = () => {
             openModal(vacancyId);
         }
     });
-
-    renderMoreVacancies();
-
 };
 
 
