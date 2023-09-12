@@ -20,7 +20,8 @@ export const filter = (urlVacancy) => {
         });
 
         getData (urlWithParam, renderVacancies, renderError).then(() => {
-            lastUrl = urlWithParam;
+            // lastUrl = urlWithParam;
+            Object.assign(lastUrl, urlWithParam);
         });
     });
 };

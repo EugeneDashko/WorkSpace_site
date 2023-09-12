@@ -24,7 +24,7 @@ const cardsList = document.querySelector('.cards__list');
 export let lastUrl = "";
 export const pagination = {};
 
-export const url = new URL(`${API_URL}${VACANCY_URL}`);
+export const urlWithParams = new URL(`${API_URL}${VACANCY_URL}`);
 
 //use modules
 
@@ -78,8 +78,11 @@ const init = () => {
     // выбор вакансий:
     const cardsList = document.querySelector('.cards__list');
     addPreload(cardsList);
-    getData(url, renderVacancies, renderError).then(() => {
-        lastUrl = url;
+
+    urlWithParams.searchParams.set("limit", window.innerWidth < 768 ? 6 : 12);
+    urlWithParams.searchParams.set("page", pagination.currentPage + 1);
+    getData(urlWithParams, renderVacancies, renderError).then(() => {
+        lastUrl = urlWithParams;
         removePreload(cardsList);
     });
 

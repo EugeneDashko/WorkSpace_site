@@ -1,4 +1,4 @@
-import { API_URL, url } from "..";
+import { API_URL, urlWithParams } from "..";
 import { getData } from "./getData";
 import { renderError } from "./renderError";
 
@@ -74,7 +74,7 @@ const renderModal = (data) => {
 }
 
 export const openModal = (id) => {
-    getData(`${url}/${id}`, renderModal, renderError)
+    getData(`${urlWithParams}/${id}`, renderModal, renderError)
 }
 
 
