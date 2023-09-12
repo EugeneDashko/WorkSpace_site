@@ -31,20 +31,19 @@ export const url = new URL(`${API_URL}${VACANCY_URL}`);
 
 //пагинация
 // observer - следит за чем-либо
-// export const observer = new IntersectionObserver(
-//     (entries) => {
-//         entries.forEach(entry => {
-//             //если элемент видимый
-//             if (entry.isIntersecting) {
-//                 loadMoreVacancies(cardsList);
-                
-//             }
-//         })
-//     },
-//     {
-//         rootMargin: "100px",
-//     },
-// );
+export const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            //если элемент видимый
+            if (entry.isIntersecting) {
+                loadMoreVacancies(cardsList);
+            }
+        })
+    },
+    {
+        rootMargin: "100px",
+    },
+);
 
 const init = () => {
     filter(`${API_URL}${VACANCY_URL}`);
@@ -60,20 +59,20 @@ const init = () => {
     //запрос на сервер по городам:
     getData(`${API_URL}${LOCATION_URL}`,
 
-            (locationData) => {
-                const locations = locationData.map(location => {
-                    return {value: location};
-                });
+        (locationData) => {
+            const locations = locationData.map(location => {
+                return {value: location};
+            });
 
-                cityChoices.setChoices(
-                locations,
-                "value",
-                "label",
-                true)
-            },
+            cityChoices.setChoices(
+            locations,
+            "value",
+            "label",
+            true)
+        },
 
-            (err) => {
-                console.log('err: ', err);
+        (err) => {
+            console.log('err: ', err);
     });
 
     // выбор вакансий:
@@ -97,7 +96,7 @@ const init = () => {
 };
 
 
-init();
+window.addEventListener('DOMContentLoaded',init);
 
 
 

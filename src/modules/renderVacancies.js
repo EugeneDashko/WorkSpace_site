@@ -31,9 +31,9 @@ export const renderVacancies = (data) => {
     const cards = createCards(data);
     cardsList.append(...cards);
 
-    // if(data.pagination) {
-    //     Object.assign(pagination, data.pagination);
-    // };
+    if(data.pagination) {
+        Object.assign(pagination, data.pagination);
+    };
 
-    // observer.observe(cardsList.lastElementChild);
+    observer.observe(cardsList.lastElementChild);
 };

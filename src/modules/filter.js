@@ -1,4 +1,4 @@
-import { lastUrl, url } from "..";
+import { lastUrl } from "..";
 import { getData } from "./getData";
 import { renderError } from "./renderError";
 import { renderVacancies } from "./renderVacancies";
@@ -6,7 +6,7 @@ import { renderVacancies } from "./renderVacancies";
 
 export const filter = (urlVacancy) => {
     const filterForm = document.querySelector('.filter__form');
-    
+
     filterForm.addEventListener('submit',(event) => {
         //отключаю перезагрузку страницы по кнопке "Применить":
         event.preventDefault();
