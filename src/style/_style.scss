@@ -39,6 +39,10 @@ body {
 
         @include md {
           --width: 680px;
+
+          @include md-2 {
+            --padding: 15px;
+          }
         }
       }
 

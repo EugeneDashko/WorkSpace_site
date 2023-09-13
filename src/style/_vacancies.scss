@@ -1,12 +1,24 @@
 .vacancies {
     padding: 50px 0;
 
+        @include lg {
+        padding: 40px 0;
+
+        @include md {
+            padding: 30px 0;
+        }
+    }
+
     &__container {
         display: flex;
         gap: 24px 20px;
 
         @include md {
             flex-direction: column;
+            row-gap: 32px;
+            @include md-2 {
+                gap: 24px;
+            }
         }
     }
     &__filter-btn {
@@ -38,17 +50,27 @@
 
         //выше тоже самое написано
         flex: 0 0 280px;
+
+        @include md {
+            width: 100%;
+            flex-basis: auto;
+            height: 0; // скрываю окно
+            overflow: hidden;
+            transition: height .4s ease-in-out;
+
+            &_active {
+                height: auto; //раскрываю окно
+            }
+        }
     }
 
     &__cards {
         flex-basis: 100%; //займи все свободное пространство
-    }
-
-    @include lg {
-        padding: 40px 0;
 
         @include md {
-            padding: 30px 0;
+            width: 100%;
         }
     }
+
+
 }

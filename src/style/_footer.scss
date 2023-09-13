@@ -1,12 +1,29 @@
 .footer {
     padding: 50px 0 40px;
 
+    @include lg {
+        padding: 40px 0 32px;
+        @include md {
+            padding: 30px 0 24px;
+        }
+        @include md-2 {
+            padding-top: 20px;
+        }
+    }
+
     &__container {
         display: grid;
         gap: 27px;
         grid-template-areas: 
         " logo ."
         " copyright contacts";
+
+        @include md-2 {
+            grid-template-areas:
+                "logo"
+                "copyright"
+                "contacts";
+        }
     }
 
     &__logo {
@@ -21,6 +38,9 @@
         grid-area: contacts;
         justify-self: end;
         min-width: 180px;
+        @include md-2 {
+            justify-self: start;
+        }
     }
 
     &__contact {
@@ -30,10 +50,4 @@
             }
     }
 
-    &__link {
-    }
-
-    @include lg {
-        padding: 40px 32px;
-    }
 }

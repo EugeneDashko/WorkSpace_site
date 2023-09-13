@@ -1,6 +1,18 @@
 .hero {
     padding: 60px 0 50px;
 
+    @include lg {
+        padding: 40px 0;
+
+        @include md {
+            padding: 30px 0;
+            @include md-2 {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+        }
+    }
+
     &__container {
         position: relative;
         padding-top: 57px;
@@ -26,13 +38,24 @@
              &::after {
                 width: 340px;
              }
-
              @include md {
                 padding-top: 40px;
                 padding-bottom: 40px;
-
                 &::after {
                     width: 269px;
+                }
+                @include md-2 {
+                    padding-top: 0;
+                    padding-bottom: 262px;
+                    &::after {
+                        right: auto;
+                        top: auto;
+                        height: 269px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background-position: bottom;
+
+                    }
                 }
              }
         }
@@ -54,15 +77,13 @@
                 max-width: 450px;
                 font-size: 52px;
                 letter-spacing: 1.04px;
+                @include md-2 {
+                    max-width: 290px;
+                    text-align: center;
+                    margin: 0 auto;
+                    font-size: 32px;
+                }
             }
-        }
-    }
-
-    @include lg {
-        padding: 40px 0;
-
-        @include md {
-            padding: 30px 0;
         }
     }
 }

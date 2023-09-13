@@ -48,7 +48,9 @@ const renderModal = (data) => {
 
     const modalMain = document.createElement('div');
     modalMain.classList.add('modal__main');
+    console.log('data: ', data);
     modalMain.innerHTML = createDetailVacancy(data);
+
 
     const modalClose = document.createElement('button');
     modalClose.classList.add('modal__close');

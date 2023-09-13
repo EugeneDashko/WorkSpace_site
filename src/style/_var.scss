@@ -5,12 +5,18 @@ $text:  #171717;
 
 // от десктопа
 @mixin lg {
-    @media (max-width: 1024px) {
+    @media (max-width: 1040px) {
         @content;
     }
 }
 @mixin md {
     @media (max-width: 940px) {
+        @content;
+    }
+}
+
+@mixin md-2 {
+    @media (max-width: 640px) {
         @content;
     }
 }
