@@ -1,4 +1,4 @@
-import { API_URL, urlWithParams } from "..";
+import { API_URL, VACANCY_URL } from "..";
 import { getData } from "./getData";
 import { renderError } from "./renderError";
 
@@ -48,7 +48,7 @@ const renderModal = (data) => {
 
     const modalMain = document.createElement('div');
     modalMain.classList.add('modal__main');
-    console.log('data: ', data);
+
     modalMain.innerHTML = createDetailVacancy(data);
 
 
@@ -76,8 +76,8 @@ const renderModal = (data) => {
 }
 
 export const openModal = (id) => {
-    getData(`${urlWithParams}/${id}`, renderModal, renderError)
-}
+    getData(`${API_URL}${VACANCY_URL}/${id}`, renderModal, renderError)
+};
 
 
 

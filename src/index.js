@@ -16,8 +16,8 @@ import { loadMoreVacancies } from './modules/loadMoreVacancies';
 export const API_URL = 'https://workspace-methed.vercel.app/';
 
 
-const LOCATION_URL = "api/locations";
-const VACANCY_URL = "api/vacancy";
+export const LOCATION_URL = "api/locations";
+export const VACANCY_URL = "api/vacancy";
 
 //записываю сюда последний url вызванный в getData:
 const cardsList = document.querySelector('.cards__list');
@@ -28,7 +28,6 @@ export const urlWithParams = new URL(`${API_URL}${VACANCY_URL}`);
 
 //use modules
 
-
 //пагинация
 // observer - следит за чем-либо
 export const observer = new IntersectionObserver(
@@ -36,7 +35,7 @@ export const observer = new IntersectionObserver(
         entries.forEach(entry => {
             //если элемент видимый
             if (entry.isIntersecting) {
-                loadMoreVacancies(cardsList);
+                loadMoreVacancies();
             }
         })
     },
@@ -79,8 +78,10 @@ const init = () => {
     const cardsList = document.querySelector('.cards__list');
     addPreload(cardsList);
 
-    urlWithParams.searchParams.set("limit", window.innerWidth < 768 ? 6 : 12);
-    urlWithParams.searchParams.set("page", pagination.currentPage + 1);
+
+    urlWithParams.searchParams.set('limit', window.innerWidth < 768 ? 6 : 12);
+    urlWithParams.searchParams.set('page', 1);
+
     getData(urlWithParams, renderVacancies, renderError).then(() => {
         lastUrl = urlWithParams;
         removePreload(cardsList);

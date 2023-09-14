@@ -4,7 +4,7 @@ import { getData } from "./getData";
 import { renderError } from "./renderError";
 import { renderMoreVacancies } from "./renderMoreVacancies";
 
-export const loadMoreVacancies = (cardsList) => {
+export const loadMoreVacancies = () => {
     if(pagination.totalPages > pagination.currentPage) {
         const urlWithParams = new URL(lastUrl);
 
