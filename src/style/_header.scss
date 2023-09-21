@@ -14,6 +14,20 @@
         background-color: #A6ADFF;
         border-radius: 8px;
         font-size: 20px;
+        border: 2px solid transparent;
+        transition-property: color, background-color;
+        transition-duration: .2s;
+        transition-timing-function: ease-in-out;
+
+
+        &:focus-visible {
+            border-color: #4f58be;
+
+        }
+        &:hover {
+            color: #fff;
+            background-color: #2a18ff;
+        }
 
         @include md {
             padding: 10px 16px;

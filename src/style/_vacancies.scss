@@ -24,6 +24,20 @@
             }
         }
     }
+
+    &__filter-btn-arrow {
+        display: block;
+        margin-left: 5px;
+        margin-top: 3px;
+
+        // &_active {
+        //     margin-bottom: 32px;
+        //     transition-delay: 0;
+        //     &:after {
+        //         transform: rotate(180deg);
+        //     }
+    }
+    
     &__filter-btn {
         display: none;
 
@@ -33,14 +47,20 @@
             margin-bottom: 24px;
             transition: margin-bottom .2s ease-in-out;
             transition-delay: .2s; //задержка transition
+            color: #2a18ff;
+            transition: color .2s ease-in-out;
 
-            &::after {
-                content: '';
-                display: block;
-                width: 20px;
-                height: 20px;
-                background: url('../img/arrow-blue.svg') no-repeat 5px 8px ;
+            &:hover {
+                color: #A6ADFF;
             }
+
+            // &::after {
+            //     content: '';
+            //     display: block;
+            //     width: 20px;
+            //     height: 20px;
+            //     background: url('../img/arrow-blue.svg') no-repeat 5px 8px ;
+            // }
 
             &_active {
                 margin-bottom: 32px;
@@ -49,6 +69,11 @@
                     transform: rotate(180deg);
                 }
             }
+
+            &_active .vacancies__filter-btn-arrow {
+                transform: rotate(180deg);
+            }
+            
             @include md-2 {
                 margin-bottom: 24px;
             }

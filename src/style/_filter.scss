@@ -97,6 +97,19 @@
         color: #171717;
         border-radius: 4px;
         background-color: #A6ADFF;
+        border: 2px solid transparent;
+        transition-property: color, background-color;
+        transition-duration: .2s;
+        transition-timing-function: ease-in-out;
+
+        &:focus-visible {
+            border-color: #4f58be;
+
+        }
+        &:hover {
+            color: #fff;
+            background-color: #2a18ff;
+        }
 
     }
 

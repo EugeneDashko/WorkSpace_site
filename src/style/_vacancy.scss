@@ -1,8 +1,18 @@
 .vacancy {
     padding: 16px;
     border-radius: 16px;
-    background: #FFF;
+    background-color: #FFF;
     cursor: pointer;
+    outline: none;
+    border: 2px, solid transparent;
+    transition: background-color .2s ease-in-out ;
+    &:hover {
+        background-color: #F9FAFF;
+    }
+
+    &:focus-visible {
+        border-color: #a6adff;
+    }
 
     &__img {
         max-height: 44px;
