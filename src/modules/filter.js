@@ -2,9 +2,10 @@ import { lastUrl } from "..";
 import { getData } from "./getData";
 import { renderError } from "./renderError";
 import { renderVacancies } from "./renderVacancies";
+import { closeFilter } from "./vacanciesFilter";
 
 
-export const filter = (urlVacancy) => {
+export const filter = (urlVacancy, vacanciesFilterBtn, vacanciesFilter) => {
     const filterForm = document.querySelector('.filter__form');
 
     filterForm.addEventListener('submit',(event) => {
@@ -22,6 +23,11 @@ export const filter = (urlVacancy) => {
         getData (urlWithParam, renderVacancies, renderError).then(() => {
             // lastUrl = urlWithParam;
             Object.assign(lastUrl, urlWithParam);
-        });
+        }).then(() => {
+            closeFilter(vacanciesFilterBtn,
+                vacanciesFilter,
+                "vacancies__filter-btn_active",
+                "vacancies__filter_active");
+        });;
     });
 };

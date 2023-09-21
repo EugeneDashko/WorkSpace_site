@@ -7,6 +7,10 @@
     padding: 30px;
     overflow-y: auto; // чтобы модальное окно могло скролиться отдельно от страницы
     display: flex;
+
+    @include md-2 {
+        padding: 30px 15px;
+    }
 }
 
 

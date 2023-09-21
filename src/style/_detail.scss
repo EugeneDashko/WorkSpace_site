@@ -1,9 +1,15 @@
 .detail {
-    background-color: #fff;
+    background: #fff  url('../img/likemen.png') bottom right no-repeat; // если использую и цвет и картинку тогда вместо background-image - background
+    background-size: 150px;
     max-width: 780px;
     border-radius: 16px;
     box-shadow: 0px 10px 50px 0px rgba(4, 0, 49, 0.10);
     padding: 36px 36px 80px;
+
+    @include md-2 {
+        padding: 24px 15px;
+        background-image: none;
+    }
 
     @include md {
         max-width: 680px;
@@ -15,6 +21,12 @@
         grid-template-columns: 101px 1fr;
         gap: 12px 20px;
         margin-bottom: 32px;
+
+        @include md-2 {
+            grid-template-columns: 60px 1fr;
+            gap: 4px 8px;
+            margin-bottom: 24px;
+        }
     }
 
     &__logo {
@@ -29,6 +41,11 @@
         font-size: 32px;
         letter-spacing: 0.64px;
         align-self: end ;
+
+        @include md-2 {
+            font-size: 20px;
+            letter-spacing: 0.4px;
+        }
     }
 
     &__title {
@@ -39,6 +56,10 @@
         background-color: #EAECFF;
         justify-self: start;
         align-self: start;
+
+        @include md-2 {
+            font-size: 12px;
+        }
     }
 
     &__main {
@@ -48,6 +69,12 @@
 
         @include md {
             gap: 10px;
+
+            @include md-2 {
+                flex-direction: column;
+                gap: 24px;
+                margin-bottom: 24px;
+            }
         }
     }
 
@@ -58,6 +85,9 @@
 
         @include md {
             max-width: 418px;
+            @include md-2 {
+                max-width: 100%;
+            }
         }
     }
 
