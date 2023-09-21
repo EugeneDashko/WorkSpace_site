@@ -125,6 +125,15 @@ const init = () => {
             openModal(vacancyId);
         }
     });
+    cardsList.addEventListener("keydown", ({code, target}) => {
+         const vacancyCard = target.closest(".vacancy");
+         if((code === "Enter" || code === "NumpadEnter") && vacancyCard) {
+            const vacancyId = vacancyCard.dataset.id;
+            openModal(vacancyId);
+            target.blur();
+         }
+
+    })
 };
 
 
