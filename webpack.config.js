@@ -10,7 +10,7 @@ const target = devMode ? 'web' : 'browserslist';
 const devtool = devMode ? 'source-map' : undefined;
 
 //добавляю в webpack несколько станиц html
-const PAGES = ['index'];
+const PAGES = ['index', 'page'];
 
 module.exports = {
   mode,
