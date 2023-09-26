@@ -49,7 +49,7 @@ const init = () => {
     const vacanciesFilterBtn = document.querySelector('.vacancies__filter-btn');
     const vacanciesFilter = document.querySelector('.vacancies__filter');
 
-    vacanciesFilterBtn.addEventListener( 'click', () => {
+    vacanciesFilterBtn.addEventListener('click', () => {
         if(vacanciesFilterBtn.classList.contains("vacancies__filter-btn_active")) {
             closeFilter(vacanciesFilterBtn,
                 vacanciesFilter,
@@ -80,6 +80,7 @@ const init = () => {
         itemSelectText: '',
         searchEnabled: false,
         shouldSort: false,
+        position: 'bottom',
     });
 
 

@@ -1,0 +1,51 @@
+.file {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    &__wrap-preview {
+        background-color: #fff;
+        min-width: 280px;
+        height: 80px;
+    }
+
+    &__wrap-preview_active {
+        min-width: auto; // отменю правило в 280px
+    }
+
+    &__preview {
+
+    }
+
+    &__wrap-btn {
+        position: relative;
+    }
+
+    &__label { //  является строчным элементов
+        display: inline-block; //делаю строчно-блочным
+        padding: 8px 24px;
+        border-radius: 4px;
+        background-color: #a6adff;
+        cursor: pointer;
+        border: 2px solid transparent;
+
+        &:focus-visible {
+            border-color: #4f58be;
+
+        }
+        &:hover {
+            color: #fff;
+            background-color: #2a18ff;
+        }
+
+    }
+
+    &__input {
+        opacity: 0;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        top: 50%;
+        left: 50%;
+    }
+}
