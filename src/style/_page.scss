@@ -15,15 +15,27 @@
     }
 
     &__fieldset-input {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px 32px;
+        margin-bottom: 32px;
     }
 
     &__wrap-input {
+
     }
 
     &__label {
+        display: block;
+        margin-bottom: 12px;
     }
 
     &__input {
+        border-radius: 4px;
+        margin: 0 16px;
+        &::placeholder {
+            color: #ccc;
+        }
     }
 
     &__fieldset-textarea {
