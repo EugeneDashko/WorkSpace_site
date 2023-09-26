@@ -45,7 +45,9 @@ export const observer = new IntersectionObserver(
 );
 
 const init = () => {
+//try/ catch -  обход ошибки js  на при загрузки страницы page.
 
+try {
     const vacanciesFilterBtn = document.querySelector('.vacancies__filter-btn');
     const vacanciesFilter = document.querySelector('.vacancies__filter');
 
@@ -135,6 +137,19 @@ const init = () => {
          }
 
     })
+} catch (error) {
+    console.log('error: ', error);
+    console.warn('Мы не на странице index.html')
+}
+
+try {
+    
+} catch (error) {
+    console.log('error: ', error);
+    console.warn('Мы не на странице page.html')
+
+}
+
 };
 
 
