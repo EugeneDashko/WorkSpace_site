@@ -6,19 +6,28 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-
+        flex-wrap: wrap;
+        gap: 24px;
+        @include md-2 {
+            align-items: center;
+            justify-content: center;
+        }
     }
+
     &__links {
         display: flex;
         gap: 8px;
         flex-wrap: wrap;
+        @include md-2 {
+            max-width: 290px;
+        }
     }
     &__link {
         padding: 12px 32px;
         background-color: #A6ADFF;
         border-radius: 8px;
         font-size: 20px;
+        text-align: center;
         border: 2px solid transparent;
         transition-property: color, background-color;
         transition-duration: .2s;
@@ -38,7 +47,7 @@
             padding: 10px 16px;
             font-size: 14px;
             @include md-2 {
-                display: none;
+                width: 100%;
             }
         }
     }

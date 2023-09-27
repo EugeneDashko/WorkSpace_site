@@ -13,7 +13,7 @@
         width: 20px;
         height: 20px;
         background-color: #fff;
-        border-radius: 4px;
+        border-radius: 50%;
 
         //создаю свои checkboxes:
         //псевдоэлементы:
@@ -21,11 +21,14 @@
             content: '';
             position: absolute; 
             display: block;
-            inset: 0;
-            background-image: url('../img/check_svg.svg');
-            background-repeat: no-repeat;
-            background-position: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 4px;
             opacity: 0;
+            background-color: #171717;
+            border-radius: 50%;
             transition: opacity .2s ease-in;
         };
 
