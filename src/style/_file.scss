@@ -8,6 +8,7 @@
         min-width: 280px;
         height: 80px;
         margin-bottom: 12px;
+        border-radius: 4px;
     }
 
     &__wrap-preview_active {
@@ -21,6 +22,7 @@
     &__wrap-btn {
         position: relative;
     }
+
     &__wrap-btn:focus-within .file__label {
         border-color: #4f58be;
     }
@@ -32,6 +34,10 @@
         background-color: #a6adff;
         cursor: pointer;
         border: 2px solid transparent;
+        transition-property: color, background-color;
+        transition-duration: .2s;
+        transition-timing-function: ease-in-out;
+
 
         &:focus-visible {
             border-color: #4f58be;
