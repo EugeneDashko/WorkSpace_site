@@ -12,6 +12,11 @@ import { filter } from './modules/filter';
 import { loadMoreVacancies } from './modules/loadMoreVacancies';
 import { closeFilter, openFilter } from './modules/vacanciesFilter';
 
+import { fileController } from './modules/fileControllerPage';
+import { formController } from './modules/formControllerPage';
+//page:
+
+
 //API
 export const API_URL = 'https://workspace-methed.vercel.app/';
 
@@ -143,11 +148,15 @@ try {
 }
 
 try {
-    
+    fileController();
+    formController();
+
+
+
+
 } catch (error) {
     console.log('error: ', error);
     console.warn('Мы не на странице page.html')
-
 }
 
 };

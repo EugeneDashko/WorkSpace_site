@@ -11,12 +11,18 @@
         border-radius: 4px;
     }
 
+    &_active .file__wrap-preview {
+        background-color: transparent;
+
+    }
+
     &__wrap-preview_active {
         min-width: auto; // отменю правило в 280px
     }
 
     &__preview {
-
+        max-width: 100%;
+        height: 80px;
     }
 
     &__wrap-btn {
