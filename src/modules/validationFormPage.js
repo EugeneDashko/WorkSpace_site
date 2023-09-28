@@ -73,5 +73,7 @@ export const validationForm = (form) => {
     //ниже радиокнопки:
     .addRequiredGroup('#format', 'Выберите формат')
     .addRequiredGroup('#experience', 'Выберите опыт')
-    .addRequiredGroup('#type', 'Выберите занятость')
+    .addRequiredGroup('#type', 'Выберите занятость');
+
+return validate;
 }

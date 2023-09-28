@@ -18,7 +18,8 @@ import { formController } from './modules/formControllerPage';
 
 
 //API
-export const API_URL = 'https://workspace-methed.vercel.app/';
+// export const API_URL = 'https://workspace-methed.vercel.app/';
+export const API_URL = 'https://vintage-worried-dibble.glitch.me/'
 
 
 export const LOCATION_URL = "api/locations";
