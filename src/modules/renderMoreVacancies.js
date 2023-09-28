@@ -1,4 +1,5 @@
-import { observer, pagination } from "..";
+import { pagination } from "..";
+import { observer } from "./observer";
 import { createCards } from "./renderVacancies";
 
 export const renderMoreVacancies= (data) => {

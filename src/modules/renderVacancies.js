@@ -1,5 +1,5 @@
-import { API_URL, observer, pagination } from "..";
-
+import { API_URL, pagination } from "..";
+import { observer } from "./observer";
 
 
 const createCard = vacancy =>

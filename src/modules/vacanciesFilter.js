@@ -6,7 +6,6 @@ export const openFilter = (btn, dropDown, classNameBtn, classNameDb) => {
 };
 
 export const closeFilter = (btn, dropDown, classNameBtn, classNameDb) => {
-    console.log('classNameBtn: ', classNameBtn);
     btn.classList.remove(classNameBtn);
     dropDown.classList.remove(classNameDb);
     dropDown.style.height = "";
