@@ -73,10 +73,24 @@
         height: 32px;
         border: none;
         width: 100%;
+        outline: 0; //убираю стандартную обводку при tab
+        border: 1px solid transparent;
 
         &::placeholder {
             color: #ccc;
         }
+
+    }
+
+
+    &__input.invalid,
+    &__textarea.invalid {
+        border-color:#f00;
+    }
+
+    &__input:focus-visible ,
+    &__textarea:focus-visible  {
+        border-color:#a6adff;
     }
 
     &__fieldset-textarea {
@@ -93,11 +107,14 @@
         width: 100%;
         resize: vertical;
         border: none;
+        outline: 0; //убираю стандартную обводку при tab
+        border: 1px solid transparent;
 
         &::placeholder {
             color: #ccc;
             padding: 7px 16px;
         }
+
     }
 
     &__radio-buttons {

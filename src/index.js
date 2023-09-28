@@ -152,8 +152,6 @@ try {
     formController();
 
 
-
-
 } catch (error) {
     console.log('error: ', error);
     console.warn('Мы не на странице page.html')
