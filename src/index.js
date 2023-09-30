@@ -12,7 +12,6 @@ import { chooseVacancy } from './modules/chooseVacancy';
 
 //API
 export const API_URL = 'https://vintage-worried-dibble.glitch.me/'
-
 export const LOCATION_URL = "api/locations";
 export const VACANCY_URL = "api/vacancy";
 
@@ -20,7 +19,9 @@ export const VACANCY_URL = "api/vacancy";
 export const cardsList = document.querySelector('.cards__list');
 
 //записываю сюда последний url вызванный в getData:
-export let lastUrl = "";
+export let lastUrl = {
+    url: ''
+};
 
 export const pagination = {};
 export const urlWithParams = new URL(`${API_URL}${VACANCY_URL}`);

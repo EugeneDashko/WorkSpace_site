@@ -29,5 +29,5 @@ export const filterToggle = () => {
                 "vacancies__filter_active");
         };
     });
-    filter(`${API_URL}${VACANCY_URL}`, vacanciesFilterBtn, vacanciesFilter);
+    filter(vacanciesFilterBtn, vacanciesFilter);
 }
