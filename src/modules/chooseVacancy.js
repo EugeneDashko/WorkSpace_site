@@ -7,7 +7,7 @@ import { renderVacancies } from "./renderVacancies";
 
 export const chooseVacancy = () => {
         // выбор вакансий:
-        // addPreload(cardsList);
+        addPreload(cardsList);
         const urlWithParams = new URL(`${API_URL}${VACANCY_URL}`);
 
         urlWithParams.searchParams.set('limit', window.innerWidth < 768 ? 6 : 12);
@@ -17,7 +17,7 @@ export const chooseVacancy = () => {
         getData(urlWithParams, renderVacancies, renderError)
         .then(() => {
             lastUrl.url = urlWithParams;
-            // removePreload(cardsList);
+            removePreload(cardsList);
         })
         //открываю модальное окно:
         cardsList.addEventListener('click', ({target}) => {

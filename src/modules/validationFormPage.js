@@ -6,6 +6,11 @@ export const validationForm = (form) => {
         errorLabelStyle: {
             color: '#f00'
         },
+
+        tooltip: {
+            position: 'top',
+        },
+
         errorFieldStyle: {
             borderColor: '#f00'
         },

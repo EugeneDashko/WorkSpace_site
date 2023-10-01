@@ -8,6 +8,7 @@ import { formController } from './modules/formControllerPage';
 import { filterToggle } from './modules/filterToggle';
 import { selectCityControl } from './modules/selectCityControl';
 import { chooseVacancy } from './modules/chooseVacancy';
+import { inputNumberController } from './modules/inputNumberController';
 
 
 //API
@@ -52,7 +53,7 @@ const init = () => {
         console.log('error: ', error);
         console.warn('Мы не на странице page.html')
     }
-
+    inputNumberController();
 };
 
 window.addEventListener('DOMContentLoaded',init);
